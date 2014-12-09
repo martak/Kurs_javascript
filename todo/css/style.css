@@ -23,6 +23,18 @@ body {
     width: 7.5%;
 }
 
+#inputview .button2{
+    display: inline-block;
+    background: #ff9900;
+    padding: 0.6rem 0.1rem;
+	margin-left: 7rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    width: 7.5%;
+}
+
 #listview {
     clear: both;
 }

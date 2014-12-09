@@ -7,6 +7,16 @@ function InputCtrl(inputView,store) {
 
 function ListCtrl(listView,store,http) {
 
+	var callback = function (err, response) {
+		if (err) {
+			throw err; //request error, do something
+		}
+
+		console.log(response); //object with the server data;
+	};
+					
+	UAM.Http.request('/api/todos', 'GET', null, callback);
+
     store.on('add', function(element){
     listView.add(element);
     });

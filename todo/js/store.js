@@ -23,3 +23,8 @@ UAM.Store.prototype.update = function (id,data) {
 	}
 	this.emit('updateAll',this.active);
 };
+
+UAM.Store.prototype.save = function() {
+    var saveList = [];
+
+};
