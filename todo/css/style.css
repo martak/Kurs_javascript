@@ -1,0 +1,48 @@
+body {
+    width: 40%;
+}
+
+#inputview{
+    width: 100%;
+}
+
+#inputview input{
+    display: inline-block;
+    padding: 0.6rem 0.1rem;
+	width: 80%;
+}
+
+#inputview .button{
+    display: inline-block;
+    background: #ff9900;
+    padding: 0.6rem 0.1rem;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    width: 7.5%;
+}
+
+#listview {
+    clear: both;
+}
+
+#listview li {
+    min-height: 3rem;
+    line-height: 3rem;
+	border-top: 0.1rem solid black;
+    background-color: #FF9933;
+    margin-left: -2.6rem;
+    padding-left: 0.8rem;
+}
+
+#listview li.active {
+    background-color: #696969;
+    color: white;
+    text-decoration: line-through;
+}
+#footerview {
+	width: 100%;
+	background-color: #ff9900;
+}
+
