@@ -7,7 +7,20 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-
+	<script type="text/javascript">
+		var httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function () {
+			if (httpRequest.readyState !== 4 ) {
+				return;
+			}
+			if (httpRequest.status !== 200) {
+				throw new Error('Request failed');
+			}
+			console.log(httpRequest.responseText);
+		};
+	httpRequest.open('POST', '/api/todos');
+	httpRequest.send(JSON.stringify([{id: 0, value: 'test'}, {id: 1, value: 'test222'}]));
+	</script>
 		<div class="body">
 			<div id="inputview">
 			 <input id="newTask" type="text">
@@ -27,6 +40,7 @@
 	<script src="js/controllers.js"></script>
 	<script src="js/views.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/http.js"></script>
 
     </body>
 </html>
