@@ -1,7 +1,7 @@
 var express = require('express');
-var faker = require('faker');
 var bodyParser = require('body-parser');
 var app = express();
+var savedData = [];
 
 app.use(express.static('./'));
 // parse application/x-www-form-urlencoded
@@ -16,35 +16,30 @@ app.use(bodyParser.json());
 
 
 app.get('/api/todos', function (req, res) {
-	var records = [], number = Math.floor(Math.random() * 10) + 3;
-	for (var i = 0; i < number; i++) {
-		records.push({
-			id: i,
-			value: faker.lorem.words(2).join(' ')
-		});
-	}
 	setTimeout(function () {
-		res.json(records);
-	}, 500);
+		res.json(savedData);
+	}, 700);
 });
 
 app.post('/api/todos', function (req, res) {
 	var data;
+
 	try {
-		data = JSON.parse(req.body);
+		data = req.body;
 		if (!req.body || !Array.isArray(data)) {
 			throw new Error('Wrong data format!');
 		}
 		if (!data.length) {
 			throw new Error('Passed array is empty');
 		}
-		res.json({
-			status: true,
-			msg: 'Saved ' + data.length + ' elements'
-		});
+		savedData = data;
+		setTimeout(function () {
+			res.json({
+				msg: 'Saved ' + data.length + ' elements'
+			});
+		}, 700);
 	} catch (e) {
-		res.json({
-			status: false,
+		res.status(400).json({
 			msg: e.message
 		});
 	}
